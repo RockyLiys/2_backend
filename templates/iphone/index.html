@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Home</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/iphone/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <header class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link active" href="/iphone">首页<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/">进入后台管理</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">联系我们</a>
+            </li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">WXP</h3>
+      </header>
+
+      <main role="main">
+
+        <div class="jumbotron">
+          <h1 class="display-3">家长您好</h1>
+          <p class="lead">小宝宝是上天赐给我们最好的礼物,他(她)的成长健康跟我们做家长的息息相关,孩子的智力发育，更是重中之重的事情，不可以掉以轻心。</p>
+          <p><a class="btn btn-lg btn-success" href="#" role="button">了解更多详情</a></p>
+        </div>
+		<form action="/iphone/submit" method="POST">{% csrf_token %}
+			<label>孩子的性别:</label>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="gender" value="M" checked>男
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="gender" value="F" >女
+              </label>
+            </div>
+			<label>孩子的生日:</label>
+             <input type="text" name="birthday" class="form-control" value="2017-06-30" placeholder="2017-06-30">
+			<label>你所在的地区:</label>
+             <input type="text" name="area" class="form-control" value="北京市,北京市,海淀区"  placeholder="北京市,北京市,昌平区">
+			<label>孩子的性格:</label>
+            {% for t in types %}
+            <div class="form-check">
+              <label class="form-check-label">
+                  <input class="form-check-input" type="radio" name="personality" value="{{ forloop.counter0 }}" checked>{{ t }}
+              </label>
+            </div>
+            {% endfor %}
+			<label>你计划让孩子平均每天投入学习时间:</label>
+             <input type="text" name="time" class="form-control" value="3" placeholder="2.5小时">
+			<label>目前孩子的培养方向:</label>
+            {% for t in trans %}
+            <div class="form-check">
+              <label class="form-check-label">
+                  <input class="form-check-input" type="radio" name="direction" value="{{ forloop.counter0 }}" checked>{{ t }}
+              </label>
+            </div>
+            {% endfor %}
+			<label>兴趣班每月承受的费用:</label>
+             <input type="text" name="expenses" class="form-control" value="2000" placeholder="10000">
+             <label>已经或计划上的兴趣班:</label><br/>
+            {% for s in skills %}
+            <div class="form-check form-check-inline">
+              <label class="form-check-label">
+                  <input class="form-check-input" name="skills[]" type="checkbox" value="{{ forloop.counter0 }}" >{{ s }}
+              </label>
+            </div>
+            {% endfor %}
+            <br/>
+		    <button type="submit" class="btn btn-primary">分析结果</button>
+		</form>
+
+      </main>
+      <footer class="footer">
+        <p>&copy; Company 2017</p>
+      </footer>
+
+    </div> <!-- /container -->
+  </body>
+</html>
+
