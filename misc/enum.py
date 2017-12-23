@@ -62,7 +62,7 @@ EXERCISE_FITNESS = [
     ("39", "跆拳道"),
     ("40", "游泳"),
     ("41", "高尔夫"),
-    ("41", "武术"),
+    ("42", "武术"),
 ]
 
 ALL_SKILLS = BASE_KNOWLEDGE + PROFESSIONAL_SKILLS_TRANING + ART_FEATURES + EXERCISE_FITNESS
