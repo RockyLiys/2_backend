@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django_celery_beat',
     'django_celery_results',
     'adapter',
+    'adapter.account',
     'iphone',
 ]
 
@@ -76,6 +77,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'wxp.wsgi.application'
 
+#AUTH_USER_MODEL = 'adapter.account.models.Account'
+AUTH_PROFILE_MODULE = 'adapter.account.Account'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases

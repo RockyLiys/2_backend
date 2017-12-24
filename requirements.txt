@@ -1,6 +1,7 @@
 amqp==2.2.2
 anyjson==0.3.3
 apache-libcloud==2.2.1
+appnope==0.1.0
 backports-abc==0.5
 backports.shutil-get-terminal-size==1.0.0
 billiard==3.5.0.3
@@ -12,10 +13,12 @@ configparser==3.5.0
 decorator==4.1.2
 Django==1.10
 django-celery==3.2.2
+django-celery-beat==1.1.0
 django-celery-results==1.0.1
 django-filter==1.1.0
 entrypoints==0.2.3
 enum34==1.1.6
+ephem==3.7.6.0
 functools32==3.2.3.post2
 graphene==2.0.1
 graphene-django==2.0.0
