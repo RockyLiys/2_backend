@@ -12,9 +12,9 @@ import random
 import time
 from datetime import datetime
 from adapter.models import Result
-from .tasks import analyze_result
 from misc.enum import power_map
 from adapter.models import Hobbies, TrainingDirection
+from iphone.signals import deal_result_handler
 
 
 class HelloWorld(ListView):
@@ -51,10 +51,7 @@ def submit_form(request):
         req_json.pop("csrfmiddlewaretoken")
         orderId = datetime.now().strftime("%j%U%w%Y%m%d%H%M%S%s")
         obj, created = Result.objects.get_or_create(order=orderId, test_data=json.dumps(req_json))
-        if created:
-            #TODO发送任务处理
-            analyze_result(obj.order)
-        else:
+        if not created:
             #TODO已经存一样的记录发邮件通知
             pass
         count = {

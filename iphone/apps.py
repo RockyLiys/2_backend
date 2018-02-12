@@ -6,3 +6,9 @@ from django.apps import AppConfig
 
 class IphoneConfig(AppConfig):
     name = 'iphone'
+
+    def ready(self):
+        from  iphone.signals import deal_result_handler
+
+
+
