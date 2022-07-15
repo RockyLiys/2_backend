@@ -14,7 +14,7 @@ decorator==4.1.2
 Django==1.10
 django-celery==3.2.2
 django-celery-beat==1.1.0
-django-celery-results==1.0.1
+django-celery-results==2.4.0
 django-filter==1.1.0
 entrypoints==0.2.3
 enum34==1.1.6
